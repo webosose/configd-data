@@ -1,0 +1,31 @@
+{
+    "layers": [
+        {
+            "base_dir": "/etc/configd/layers/base",
+            "name": "default",
+            "priority": 1
+        },
+        {
+            "base_dir": "/etc/configd/layers/buildtime",
+            "name": "Binary built time",
+            "priority": 11,
+            "selector": {
+                "command": "nyx-cmd OSInfo query webos_build_datetime"
+            }
+        },
+        {
+            "base_dir": "/etc/configd/layers/devicename",
+            "name": "Device Name",
+            "priority": 61,
+            "selector": {
+                "file": "/etc/prefs/properties/machineName"
+            }
+        },
+        {
+            "base_dir": "/etc/configd/layers/overlay",
+            "name": "Override configs",
+            "description": "Conditional configs for post-processing",
+            "priority": 900
+        }
+    ]
+}
